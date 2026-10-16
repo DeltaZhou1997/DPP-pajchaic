@@ -1,11 +1,9 @@
-# && = if else
+#!/bin/bash
 
-if [ $# -eq 0]
-then
-echo "No srguments supplied"
+if [ "$#" -eq 0 ]; then
+    printf '%s\n' 'No arguments supplied'
 else
-echo "$1"
-[-n "$2"] && echo "$2"
-[-n "$3"] && echo "$3"
-[-n "$4"] && echo "$4"
+    for argument in "${@:1:3}"; do
+        printf '%s\n' "$argument"
+    done
 fi
